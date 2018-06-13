@@ -1,0 +1,24 @@
+类：
+    类的格式：
+        class Student(object):
+            def __init__(self,name,score):
+                self.__name=name
+                self.__score=score
+            
+            def print_score(self):
+                print('%s %s' %(self.__name,self.__score))
+    
+    note：
+        1. (object) 表示Student类继承于哪个类，如果没有合适的继承类，就使用object类（所有的基类）
+        2. __init__ 实例化对象
+        3. self 表示实例本身，所有的方法必须有一个切第一个参数是self
+        4. 在Python中，
+            变量名类似 __XX__,也就是以双下划线开头，以双下划线结尾的，是特殊变量；特殊变量可以直接访问，不是private。
+            变量名类似 _X ,以一个下划线开头的实例变量名，比如_name，外部是直接可以访问的，但是按照约定俗成，当你看到
+            这样的变量名时，意思就是，“虽然我可以被访问，但是，请把我看成private变量，不要随意访问”。
+            变量名类似__X ，以双下划线开头的，表示类的private变量；
+
+            私有变量（private）一定不能被外部访问吗？
+            NO, 不能直接访问 __name是因为Python解释器对外把 __name变量改成了 _Student__name，所以，仍然可以通过
+            _Student__name来访问 __name变量。但是，强烈建议不要这么干，因为不同版本的解释器会把 __name改成不同的名字。
+            （Python本身没有任何机制阻止你干坏事，一切靠自觉。）
