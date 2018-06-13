@@ -22,3 +22,10 @@
             NO, 不能直接访问 __name是因为Python解释器对外把 __name变量改成了 _Student__name，所以，仍然可以通过
             _Student__name来访问 __name变量。但是，强烈建议不要这么干，因为不同版本的解释器会把 __name改成不同的名字。
             （Python本身没有任何机制阻止你干坏事，一切靠自觉。）
+    错误写法：
+            bart=Student('bob',88)
+            bart.__name='new name' //设置__name 变量
+
+            bart.__name 输出：new name ；表面上看，外部代码‘成功’的设置了 __name 变量，但是实际上这个 __name 变量和class内部
+            的 __name变量不是同一个变量！内部的变量 __name已经被Python解释器自动改成了 _Student__name，而外部代码给bart新增了
+            一个 __name 变量。
